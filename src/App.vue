@@ -1,31 +1,49 @@
+
+
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- <test :n="1">app</test>
+    <test :n="2">app</test>
+    <test :n="3">app</test>
+    <test :n="4">app</test>-->
+
+    <!-- <test2></test2> -->
+    <!-- <test2 :n=1>app</test2> -->
+
+    <!-- <test3 :data="['css','js','html']" :render = "render"> -->
+    <!-- </test3> -->
+
+    <!-- jsx -->
+    <!-- <list1 :data="['vue','koa','node','react','express']" :render="render"></list1> -->
+
+    <!-- slot  作用域插槽 -->
+    <list2 :data="['vue','koa','node','react','express']" :render="render">
+      <template v-slot ="{item}">
+        <span>{{item}}</span>
+      </template>
+    </list2>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+// import test from "./views/test ";
+// import test2 from "./test2";
+// import test3 from "./test3.vue";
+// import list1 from "./list1";
+// import list1 from "./list1";
+import list2 from "./list2";
+export default {
+  methods: {
+    render(h, item) {
+      return <h1>{item}</h1>;
+    }
+  },
+  components: {
+    // test，
+    // test2,
+    // test3,
+    // list1,
+    list2
+  }
+};
+</script>
